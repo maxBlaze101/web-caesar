@@ -41,3 +41,12 @@ def encrypt():
     encrypted = rotate_string(text, rot)
 
     return form.format(msg=encrypted)
+@app.route("/")
+def index():
+    if request.args.get('encrypted'):
+        encrypted  = request.args.get('encrypted')
+    else:
+        encrypted  = ''
+    return form.format(msg=encrypted)
+
+app.run()
