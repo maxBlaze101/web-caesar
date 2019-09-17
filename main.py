@@ -34,3 +34,10 @@ form = """
     </body>
 </html>
 """
+@app.route("/", methods=['POST'])
+def encrypt():
+    rot = int(request.form['rot'])
+    text = request.form['text']
+    encrypted = rotate_string(text, rot)
+
+    return form.format(msg=encrypted)
